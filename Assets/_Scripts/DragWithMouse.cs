@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class DragWithMouse : MonoBehaviour
@@ -20,30 +19,27 @@ public class DragWithMouse : MonoBehaviour
         {
             rb.position = nextPosition;
         }
-
     }
 
     private void OnMouseDown()
     {
         screenPoint = Camera.main.WorldToScreenPoint(gameObject.transform.position);
-        Vector3 position = GetMousePos();
-        offset = gameObject.transform.position - Camera.main.ScreenToViewportPoint(position);
+        offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(GetMousePos());
         nextPosition = Vector3.zero;
         rb.isKinematic = true;
     }
 
     private void OnMouseDrag()
     {
-        Vector3 curScreenPoint = GetMousePos();
-        Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint) + offset;
-        transform.position = curPosition;
-
+        nextPosition = Camera.main.ScreenToWorldPoint(GetMousePos()) + offset;
     }
 
-    private void OnMouseUpAsButton()
+    private void OnMouseUp()
     {
-       rb.isKinematic = false;
+        rb.isKinematic = false;
+        nextPosition = Vector3.zero;
     }
+
 
     private Vector3 GetMousePos()
     {
