@@ -358,6 +358,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 165367982781281670, guid: 631ff2043465e6b49bbded4fca55c7ee, type: 3}
+      propertyPath: gameTable
+      value: 
+      objectReference: {fileID: 323152831}
     - target: {fileID: 7765863686837397351, guid: 631ff2043465e6b49bbded4fca55c7ee, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
@@ -373,6 +377,10 @@ PrefabInstance:
     - target: {fileID: 8903237709554074842, guid: 631ff2043465e6b49bbded4fca55c7ee, type: 3}
       propertyPath: m_Name
       value: DestroyPlane
+      objectReference: {fileID: 0}
+    - target: {fileID: 8903237709554074842, guid: 631ff2043465e6b49bbded4fca55c7ee, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -492,13 +500,13 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 4509696081294304195, guid: d1793c0b07b0e6b418bed0abbaf4951b, type: 3}
-    - {fileID: 4693486885095797734, guid: d1793c0b07b0e6b418bed0abbaf4951b, type: 3}
+    - {fileID: 0}
+    - {fileID: 0}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2256118076951352575, guid: d1793c0b07b0e6b418bed0abbaf4951b, type: 3}
-      insertIndex: -1
+      insertIndex: 4
       addedObject: {fileID: 323152839}
   m_SourcePrefab: {fileID: 100100000, guid: d1793c0b07b0e6b418bed0abbaf4951b, type: 3}
 --- !u!1660057539 &9223372036854775807

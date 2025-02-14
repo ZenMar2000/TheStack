@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 165367982781281670}
   m_Layer: 2
   m_Name: DestroyPlane
-  m_TagString: Untagged
+  m_TagString: NoStackCount
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -66,3 +66,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d904c801978b7824f86de560b96fba1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameTable: {fileID: 0}
