@@ -10,9 +10,21 @@ public class DestroyOnFall : MonoBehaviour
     {
         gtl = gameTable.GetComponent<GameTableLogic>();
     }
-    private void OnCollisionEnter(Collision collision)
+
+    private void OnTriggerEnter(Collider collision)
     {
-        Destroy(collision.gameObject);
-        gtl.ReduceCollisionCount();
+        if (collision.gameObject.tag == _Utils.Tag_StackItem)
+        {
+            ShrinkShape shrinkShape = collision.GetComponent<ShrinkShape>();
+            if (!shrinkShape.HasCollided())
+            {
+                collision.gameObject.GetComponent<ShrinkShape>().PerformShrink();
+                gtl.ReduceCollisionCount();
+            }
+        }
+        else
+        {
+            Destroy(collision.gameObject);
+        }
     }
 }

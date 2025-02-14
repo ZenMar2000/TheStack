@@ -362,6 +362,10 @@ PrefabInstance:
       propertyPath: gameTable
       value: 
       objectReference: {fileID: 323152831}
+    - target: {fileID: 4013850477728599931, guid: 631ff2043465e6b49bbded4fca55c7ee, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7765863686837397351, guid: 631ff2043465e6b49bbded4fca55c7ee, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0

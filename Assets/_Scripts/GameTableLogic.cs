@@ -5,7 +5,7 @@ public class GameTableLogic : MonoBehaviour
     Rigidbody rb;
     Quaternion originalRotation;
     int collisions = 0;
-    float angleSpeed = 0.01f;
+    float angleSpeed = 0.1f;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -22,16 +22,9 @@ public class GameTableLogic : MonoBehaviour
         rb.position = Vector3.zero;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    public void IncreaseCollisions()
     {
-        if (collision.gameObject.tag == _Utils.Tag_StackItem)
-        {
-            if (collision.gameObject.GetComponent<ShrinkShape>().HasCollided() == false)
-            {
-                collisions++;
-                //Debug.Log("Added collision. Tot: " + collisions);
-            }
-        }
+        collisions++;
     }
     public void ReduceCollisionCount()
     {

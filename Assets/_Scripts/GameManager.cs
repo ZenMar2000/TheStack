@@ -12,8 +12,11 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     PhysicsMaterial pmaterial;
 
+    GameTableLogic gtl;
+
     void Start()
     {
+        gtl = GetComponent<GameTableLogic>();
         GenerateNextShape();
     }
 
@@ -55,7 +58,6 @@ public class GameManager : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, 100))
         {
-
             GameObject instantiatedGameObject = GameObject.CreatePrimitive(primitiveToPlace);
             instantiatedGameObject.transform.localScale = randomScaleToUse;
             instantiatedGameObject.transform.position = hit.point + new Vector3(0, 1, 0);
@@ -74,17 +76,14 @@ public class GameManager : MonoBehaviour
 
             randomColor = Color.HSVToRGB(H, S, V);
             instantiatedGameObject.GetComponent<MeshRenderer>().material.color = randomColor;
-
-            //Must be inside Resources folder
-            //Texture texture = Resources.Load<Texture>("TextureName");
-            //instantiatedGameObject.GetComponent<MeshRenderer>().material.mainTexture = texture
-
             instantiatedGameObject.AddComponent<ShrinkShape>();
 
             PhysicsMaterial instantiatedMaterial = instantiatedGameObject.GetComponent<Collider>().material;
             instantiatedMaterial.bounciness = Random.Range(0.1f, 1f);
             instantiatedMaterial.staticFriction = Random.Range(0.4f, 0.8f);
             instantiatedMaterial.dynamicFriction = instantiatedMaterial.staticFriction - 0.2f;
+
+            gtl.IncreaseCollisions();
 
             GenerateNextShape();
         }
